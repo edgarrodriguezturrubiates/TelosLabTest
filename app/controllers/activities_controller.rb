@@ -46,7 +46,6 @@ class ActivitiesController < ApplicationController
 
 	private
 		def activity_params
-			params.require(:activity).permit(:name, :text)
-			#@activity.user_id = current_user
+			params.require(:activity).permit(:name, :text, :day)
 		end
 end

@@ -1,3 +1,4 @@
+<div class = "text-center">
 <%= form_with model: @activity, local: true do |form| %>
  
   <% if @activity.errors.any? %>
@@ -23,9 +24,16 @@
     <%= form.label :description %><br>
     <%= form.text_area :text %>
   </p>
+
+  <p>
+    <% @array = ['Monday','Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] %>
+    <%= form.label :day %><br>
+    <%= form.select :day, @array %>
+  </p>
   
   <p>
     <%= form.submit %>
   </p>
  
 <% end %>
+</div>

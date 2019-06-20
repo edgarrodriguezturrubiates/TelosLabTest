@@ -1,12 +1,20 @@
-<h1>Activity Registed</h1>
-<p>
-  <strong>Name:</strong>
-  <%= @activity.name %>
-</p>
+<head>
+	<div class="text-center">
+		<h1>Activity Registed</h1>
+	<div class="text-center">
+</head>
+
+<body>
+	<p>
+  		<strong>Name:</strong>
+  		<%= @activity.name %>
+	</p>
  
-<p>
-  <strong>Description:</strong>
-  <%= @activity.text %>
-</p>
-<%= link_to 'Back', activities_path %>
-<%= link_to 'Edit', edit_activity_path(@activity) %>
+	<p>
+  	<strong>Description:</strong>
+  	<%= @activity.text %>
+	</p>
+</body>
+
+<button type="button" class="btn btn-danger"><%= link_to 'Back', activities_path %></button>
+<button type="button" class="btn btn-secondary"><%= link_to 'Edit', edit_activity_path(@activity) %></button>

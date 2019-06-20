@@ -1,15 +1,45 @@
-<h1>List of regitered activities</h1>
-<%= link_to 'New activity', new_activity_path %>
-<table>
-  <tr>
-    
-    <th>Activity</th>
-    <th>Description (It can have one or not)</th>
-    <th>Options</th>
-    <th colspan="3"></th>
-    <h2>User:<%= current_user.email %></h2>
-  </tr>
-  
+<head>
+  <h1 class= "text-center">Calendar (Dashboard)</h1>
+</head>
+
+<body>
+<h2 class= "text-center">User: <%= current_user.email %></h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Monday</th>
+      <th scope="col">Tuesday</th>
+      <th scope="col">Wednesday</th>
+      <th scope="col">Thursday</th>
+      <th scope="col">Friday</th>
+      <th scope="col">Saturday</th>
+      <th scope="col">Sunday</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @activities.each do |activity| %>
+      <% if activity.day == 'Monday' && activity.user_id == current_user.id %><tr> <td><%= activity.name %> Description:<%= activity.text %></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr><%end%>
+      <% if activity.day == 'Tuesday' && activity.user_id == current_user.id %><tr> <td></td><td><%= activity.name %> Description:<%= activity.text %></td><td></td><td></td><td></td><td></td><td></td> </tr><%end%>
+      <% if activity.day == 'Wednesday' && activity.user_id == current_user.id %><tr> <td></td><td></td><td><%= activity.name %> Description:<%= activity.text %></td><td></td><td></td><td></td><td></td> </tr><%end%>
+      <% if activity.day == 'Thursday' && activity.user_id == current_user.id %><tr> <td></td><td></td><td></td><td><%= activity.name %> Description:<%= activity.text %></td><td></td><td></td><td></td> </tr><%end%>
+      <% if activity.day == 'Friday' && activity.user_id == current_user.id %><tr> <td></td><td></td><td></td><td></td><td><%= activity.name %> Description:<%= activity.text %></td><td></td><td></td> </tr><%end%>
+      <% if activity.day == 'Saturday' && activity.user_id == current_user.id %><tr> <td></td><td></td><td></td><td></td><td></td><td><%= activity.name %> Description:<%= activity.text %></td><td></td> </tr><%end%>
+      <% if activity.day == 'Sunday' && activity.user_id == current_user.id %><tr> <td></td><td></td><td></td><td></td><td></td><td></td><td><%= activity.name %> Description:<%= activity.text %> </tr><%end%>    
+    <% end %>
+  </tbody>
+</table>
+
+<button type="button" class="btn btn-secondary" > <%= link_to 'New activity', new_activity_path %></button>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Activity</th>
+      <th>Description (It can have one or not)</th>
+      <th>Options</th>
+    </tr>
+</thead>
+
+<tbody>
   <% @activities.each do |activity| %>
     <tr>
       
@@ -18,19 +48,19 @@
       <% if activity.user_id == current_user.id %>
         <td><%= activity.name %></td>
         <td><%= activity.text %></td>
-        <td><%= link_to 'Show', activity_path(activity) %></td>
-        <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
-        <td><%= link_to 'Delete', activity_path(activity),
+        <td><%= link_to 'Show', activity_path(activity) %> <%= link_to 'Edit', edit_activity_path(activity) %> <%= link_to 'Delete', activity_path(activity),
                 method: :delete,
                 data: { confirm: 'Are you sure?' } %></td>
         <% @flag = false %>
-      <% end%>
+      <% end %>
+
     </tr>
   <% end %>
 
   <% if @flag %>
     <td>Aun no tienes actividades agregadas</td>
   <% end %>
-
+</tbody>
 </table>
-<%= link_to 'Back', welcome_index_path %>
+<button type="button" class="btn btn-danger" ><%= link_to 'Back', welcome_index_path %></button>
+</body>

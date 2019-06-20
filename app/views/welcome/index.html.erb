@@ -1,16 +1,29 @@
-<h1>Welcome to PositiveTracker!</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-<% if current_user %>
+	<head>	
+		<h1 class= "text-center">Welcome to PositiveTracker!</h1>
+	</head>
+	
+	<body>
+		<section class="text-center">
+			<% if current_user %>
 
-<%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+			<button type="button" class="btn btn-danger btn"><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></button>
+			
+			<button type="button" class="btn btn-secondary btn"><%= link_to 'Start!', controller: 'activities' %></button>
 
-<%= link_to 'Activities', controller: 'activities' %>
+			<% else %>
 
-<% else %>
+			<button type="button" class="btn btn-secondary btn"><%= link_to 'Sign up', new_user_registration_path %>
+			</button>
 
-<%= link_to 'Sign up', new_user_registration_path %>
+			
+			<button type="button" class="btn btn-secondary">
+			<%= link_to 'Log in', new_user_session_path %></button>
 
-<%= link_to 'Log in', new_user_session_path %>
+			<% end %>
+		</section>
+	</body>
 
-<% end %>
-
+</html>
