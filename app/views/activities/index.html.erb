@@ -1,0 +1,17 @@
+<h1>List of regitered activities</h1>
+ 
+<table>
+  <tr>
+    <th>Activity</th>
+    <th>Description (It can have or not)</th>
+    <th></th>
+  </tr>
+ 
+  <% @activities.each do |activity| %>
+    <tr>
+      <td><%= activity.name %></td>
+      <td><%= activity.text %></td>
+      <td><%= link_to 'Show', activity_path(activity) %></td>
+    </tr>
+  <% end %>
+</table>

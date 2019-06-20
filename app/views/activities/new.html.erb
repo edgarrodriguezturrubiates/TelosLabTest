@@ -1,0 +1,20 @@
+<h1>Add a new Activity</h1>
+<p>
+	Pleas add the name of the activitiy that you want to add and a short description only if is necesary.
+</p>
+
+<%= form_with scope: :activity, url: activities_path,local: true do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_area :text %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
