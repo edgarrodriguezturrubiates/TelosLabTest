@@ -9,18 +9,23 @@
 		<section class="text-center">
 			<% if current_user %>
 
-			<button type="button" class="btn btn-danger btn"><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></button>
-			
-			<button type="button" class="btn btn-secondary btn"><%= link_to 'Start!', controller: 'activities' %></button>
+			<div class="text-center">
+				<%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+			</div>
+
+			<div class="text-center">
+				<%= link_to 'Start!', controller: 'activities' %>
+			</div>
 
 			<% else %>
 
-			<button type="button" class="btn btn-secondary btn"><%= link_to 'Sign up', new_user_registration_path %>
-			</button>
-
+			<div class="text-center">
+				<%= link_to 'Sign up', new_user_registration_path %>
+			</div>
 			
-			<button type="button" class="btn btn-secondary">
-			<%= link_to 'Log in', new_user_session_path %></button>
+			<div class="text-center">
+				<%= link_to 'Log in', new_user_session_path %>
+			</div>
 
 			<% end %>
 		</section>
