@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Proyect for evaluation porpuses only, proyect in Ruby on Rails creation of a table of the week and you can add activities to the table.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 2.6
 
-* System dependencies
-
-* Configuration
-
-* Database creation
+* Configuration: - Clone the proyect in your computer
 
 * Database initialization
+- Go to cmd run rails db:migrate
+-In cmd run rail s
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+*For ending the server
+-ctrl - C
