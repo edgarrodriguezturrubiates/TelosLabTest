@@ -1,10 +1,10 @@
 <h1>List of regitered activities</h1>
- 
+<%= link_to 'New activity', new_activity_path %>
 <table>
   <tr>
     <th>Activity</th>
     <th>Description (It can have or not)</th>
-    <th></th>
+    <th colspan="3"></th>
   </tr>
  
   <% @activities.each do |activity| %>
@@ -12,6 +12,10 @@
       <td><%= activity.name %></td>
       <td><%= activity.text %></td>
       <td><%= link_to 'Show', activity_path(activity) %></td>
+      <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
+      <td><%= link_to 'Delete', activity_path(activity),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>
