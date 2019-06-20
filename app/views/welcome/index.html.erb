@@ -1,2 +1,16 @@
-<h1>Hola rails</h1>
-<%= link_to 'Activities', controller: 'activities'%>
+<h1>Welcome to PositiveTracker!</h1>
+
+<% if current_user %>
+
+<%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+
+<%= link_to 'Activities', controller: 'activities' %>
+
+<% else %>
+
+<%= link_to 'Sign up', new_user_registration_path %>
+
+<%= link_to 'Log in', new_user_session_path %>
+
+<% end %>
+

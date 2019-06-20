@@ -1,4 +1,6 @@
 class ActivitiesController < ApplicationController
+	before_action :authenticate_user!, excpet: [:show, :index]
+	
 	def index
 		@activities = Activity.all
 	end
@@ -16,6 +18,7 @@ class ActivitiesController < ApplicationController
 
 	def create
 		@activity = Activity.new(activity_params)
+		@activity.user_id = current_user.id
 
 		if @activity.save
 			redirect_to @activity
@@ -44,5 +47,6 @@ class ActivitiesController < ApplicationController
 	private
 		def activity_params
 			params.require(:activity).permit(:name, :text)
+			#@activity.user_id = current_user
 		end
 end
